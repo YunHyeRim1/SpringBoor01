@@ -2,5 +2,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.cmm.mpr.StudentMapper">
-    
+   <insert id="insert" parameterType="com.example.demo.uss.service.model.StudentDto">
+    insert into students(userid, password, name, ssn, reg_date, subject) values(
+        #{userid}, #{password}, #{name}, #{ssn}, #{regDate}, #{subject}
+    )
+   </insert>
 </mapper>

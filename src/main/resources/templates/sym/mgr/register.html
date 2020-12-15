@@ -102,11 +102,10 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">                    
                     <div class="text-center coming-content">
-                        <h1>UNDER CONSTRUCTION</h1>
-                        <p>We have been spending long hours in order to launch our new website. 
-                            We will offer freebies, a brand new blog and featured content of our latest work. Join our mailing list or follow us on<br /> Facebook or Twitter to stay up to date.</p>                           
+                        <h1>관리자 인트로 화면</h1>
+                        <p>관리자화면 이동시 페이스북 클릭</p>                           
                         <div class="social-link">
-                            <span><a href="#"><i class="fa fa-facebook"></i></a></span>
+                            <span><a id="facebook" href="#"><i class="fa fa-facebook"></i></a></span>
                             <span><a href="#"><i class="fa fa-twitter"></i></a></span>
                             <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
                         </div>
@@ -189,6 +188,7 @@
     <script type="text/javascript" src="/resources/js/main.js"></script>
     <script>
         $('#home').click(e => { location.href = '/'})
+        $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
         $('#signupbtn').click(e => {
             e.preventDefault()
             $.ajax({
@@ -201,7 +201,7 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: d => {
-
+                   location.href='/transfer/sym/mgr/index'
                 },
                 error: e => {
                     console.log(`관리자등록 실패: ${e.responseText}`)

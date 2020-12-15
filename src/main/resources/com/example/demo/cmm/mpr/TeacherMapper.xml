@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.cmm.mpr.TeacherMapper">
     <insert id="insert" parameterType="com.example.demo.sym.service.model.TeacherDto">
-        insert into teachers (tea_num, name, password, subject)
-        values (#{teaNum}, #{name}, #{password}, #{subject})
+        insert into teachers (name, password, subject)
+        values (#{name}, #{password}, #{subject})
     </insert>
 </mapper>

@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.cmm.mpr.ManagerMapper">
     <insert id="insert" parameterType="com.example.demo.sym.service.model.ManagerDto">
-        insert into managers (mrg_num, email, password)
-        values (#{mrgNum}, #{email}, #{password})
+        insert into managers (email, password) 
+        values (#{email}, #{password})
     </insert>
 </mapper>
