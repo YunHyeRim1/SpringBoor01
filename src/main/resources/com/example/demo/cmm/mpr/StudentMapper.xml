@@ -3,8 +3,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.cmm.mpr.StudentMapper">
    <insert id="insert" parameterType="com.example.demo.uss.service.model.StudentDto">
-    insert into students(userid, password, name, ssn, reg_date, subject) values(
-        #{userid}, #{password}, #{name}, #{ssn}, #{regDate}, #{subject}
-    )
+    insert into students(userid, password, name, ssn, reg_date, subject) 
+    values(#{userid}, #{password}, #{name}, #{ssn}, #{regDate}, #{subject})
    </insert>
+   <select id="login" resultType="com.example.demo.uss.service.model.StudentDto" 
+                        parameterType="com.example.demo.uss.service.model.StudentDto">
+        select stu_num stuNum, userid, password, name, ssn, reg_date regDate, subject, profile_image profileImage
+        from students
+        where userid like #{userid} and password like #{password}
+   </select>
+   <select id="selectById" resultType="com.example.demo.uss.service.model.StudentDto" 
+                            parameterType="string">
+        select stu_num stuNum, userid, password, name, ssn, reg_date regDate, subject, profile_image profileImage
+        from students
+        where userid like #{value}
+    </select>
+    <select id="selectAll" resultType="com.example.demo.uss.service.model.StudentDto">
+        select stu_num stuNum, userid, password, name, ssn, reg_date regDate, subject, profile_image profileImage
+        from students
+    </select>
 </mapper>
