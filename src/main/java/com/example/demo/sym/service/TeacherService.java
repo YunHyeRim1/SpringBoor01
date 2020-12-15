@@ -1,5 +1,7 @@
 package com.example.demo.sym.service;
 
+import java.util.List;
+
 import com.example.demo.sym.service.model.TeacherDto;
 
 import org.springframework.stereotype.Component;
@@ -8,5 +10,9 @@ import org.springframework.stereotype.Component;
 public interface TeacherService {
 
 	public int register(TeacherDto teacher);
+
+	public TeacherDto detail(String teaNum);
+
+	public List<?> list();
     
 }

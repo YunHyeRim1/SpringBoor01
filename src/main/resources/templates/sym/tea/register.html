@@ -126,6 +126,9 @@
                           
                               <label for="psw"><b>비밀번호</b></label>
                               <input type="password" placeholder="비번 등록" id="password" required>
+
+                              <label for="email"><b>이메일</b></label>
+                              <input type="text" placeholder="이메일 등록" id="email" required>
                           
                               <label for="psw-repeat"><b>담당과목</b></label>
                               <input type="text" placeholder="과목 등록" id="subject" required>
@@ -198,6 +201,7 @@
                 data: JSON.stringify({
                     name: $('#name').val(),
                     password: $('#password').val(),
+                    password: $('#email').val(),
                     subject: $('#subject').val()
                 }),
                 dataType: 'json',
