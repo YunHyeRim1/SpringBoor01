@@ -20,12 +20,22 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    public List<?> list() {
+        return teacherMapper.selectAll();
+    }
+
+    @Override
     public TeacherDto detail(String teaNum) {
         return teacherMapper.selectById(teaNum);
     }
 
     @Override
-    public List<?> list() {
-        return teacherMapper.selectAll();
+    public int update(TeacherDto teacher) {
+        return teacherMapper.update(teacher);
+    }
+
+    @Override
+    public int delete(TeacherDto teacher) {
+        return teacherMapper.delete(teacher);
     }
 }

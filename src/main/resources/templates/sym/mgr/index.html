@@ -59,7 +59,7 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-settings.html">
+						<a id="teachers" class="sidebar-link" href="#">
               <i class="align-middle" data-feather="settings"></i> <span class="align-middle">교강사목록</span>
             </a>
 					</li>
@@ -634,6 +634,45 @@
 					$(this).click(e => {
 						localStorage.setItem("searchId", `${this.id}`)
 						location.href = '/transfer/sym/mgr/student'
+					})
+				})
+			})
+		})
+		$('#teachers').click(e => {
+			$.getJSON(`/teachers`, d => {
+				let tr = ``
+				if(d.length != 0){
+					let i = 0
+					for(; i< d.length; i++){
+						tr +=`<tr>`
+							+`<td>${d[i].teaNum}</td>`
+							+`<td><a href="#" class="names" id="${d[i].teaNum}">${d[i].name}</a></td>`
+							+`<td>${d[i].email}</td>`
+							+`<td>${d[i].subject}</td>`
+							+`</tr>`
+					}
+				}else{
+					tr = `<td colspan="4"> 조회내용이 없습니다 </td>`
+				}
+				$(`main`).html(`<h2>교강사 목록</h2>
+							<table>
+							<thead>
+							<tr>
+								<th>교강사번호</th>
+								<th>이름</th>
+								<th>이메일</th>
+								<th>담당과목</th>
+							</tr>
+							</thead>
+							<tbody>
+							${tr}
+							</tbody>
+							</table>
+					`)
+				$('.names').each(function(i){
+					$(this).click(e => {
+						localStorage.setItem("searchTeacher", `${this.id}`)
+						location.href = '/transfer/sym/tea/teacher'
 					})
 				})
 			})

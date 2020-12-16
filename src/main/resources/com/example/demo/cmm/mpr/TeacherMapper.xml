@@ -6,14 +6,22 @@
         insert into teachers (name, email, password, subject)
         values (#{name}, #{email}, #{password}, #{subject})
     </insert>
-    <select id="selectById" resultType="com.example.demo.sym.service.model.TeacherDto"
-                                parameterType="string"> 
-        select tea_num teaNum, name, email, password, subject, profile_image profileImage
-        from teachers
-        where tea_num like #{value}
-    </select>
     <select id="selectAll" resultType="com.example.demo.sym.service.model.TeacherDto">
         select tea_num teaNum, name, email, password, subject, profile_image profileImage
         from teachers
     </select>
+    <select id="selectById" resultType="com.example.demo.sym.service.model.TeacherDto"
+                            parameterType="string"> 
+        select tea_num teaNum, name, email, password, subject, profile_image profileImage
+        from teachers
+        where tea_num like #{value}
+    </select>
+    <update id="update" parameterType="com.example.demo.sym.service.model.TeacherDto">
+        update teachers set email = #{email}, subject = #{subject}
+        where tea_num like #{teaNum}
+    </update>
+    <delete id="delete" parameterType="com.example.demo.sym.service.model.TeacherDto">
+        delete from teachers
+        where tea_num like #{teaNum}
+    </delete>
 </mapper>

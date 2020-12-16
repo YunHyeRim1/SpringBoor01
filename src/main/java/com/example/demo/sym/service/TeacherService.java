@@ -11,8 +11,12 @@ public interface TeacherService {
 
 	public int register(TeacherDto teacher);
 
+	public List<?> list();
+
 	public TeacherDto detail(String teaNum);
 
-	public List<?> list();
-    
+	public int update(TeacherDto teacher);
+
+	public int delete(TeacherDto teacher);
+
 }
